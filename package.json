@@ -1,0 +1,33 @@
+{
+  "name": "locidb",
+  "version": "0.0.1",
+  "description": "Small and simple client-side database for javascript",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmcarlsson/locidb.git"
+  },
+  "keywords": [
+    "small",
+    "easy",
+    "database",
+    "client-side",
+    "javascript",
+    "module"
+  ],
+  "author": "Mikael Carlsson <mikael.m.carlsson@gmail.com> (http://webumin.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmcarlsson/locidb/issues"
+  },
+  "homepage": "https://github.com/mmcarlsson/locidb#readme",
+  "devDependencies": {
+    "webpack": "^2.3.3"
+  }
+}
