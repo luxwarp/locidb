@@ -1,3 +1,4 @@
+/*this file is for testing the module. */
+
 var loci = require("./index");
 
-loci.set("name", "lastname");
