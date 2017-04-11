@@ -1,7 +1,7 @@
 {
   "name": "locidb",
   "version": "0.0.1",
-  "description": "Small and simple client-side database for javascript",
+  "description": "Small and simple nosql-like database module for NodeJS",
   "main": "src/index.js",
   "directories": {
     "test": "test"
@@ -17,8 +17,8 @@
     "small",
     "easy",
     "database",
-    "client-side",
-    "javascript",
+    "nosql",
+    "nodejs",
     "module"
   ],
   "author": "Mikael Carlsson <mikael.m.carlsson@gmail.com> (http://webumin.com)",
