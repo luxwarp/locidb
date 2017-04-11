@@ -1,2 +1,2 @@
 # locidb
-Small and simple client-side database for javascript
+Small and simple nosql-like database module for NodeJS
