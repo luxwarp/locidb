@@ -27,7 +27,5 @@
     "url": "https://github.com/mmcarlsson/locidb/issues"
   },
   "homepage": "https://github.com/mmcarlsson/locidb#readme",
-  "devDependencies": {
-    "webpack": "^2.3.3"
-  }
+  "devDependencies": {}
 }
