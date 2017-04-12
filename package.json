@@ -2,10 +2,7 @@
   "name": "locidb",
   "version": "0.0.1",
   "description": "Small and simple nosql-like database module for NodeJS",
-  "main": "src/index.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +23,5 @@
   "bugs": {
     "url": "https://github.com/mmcarlsson/locidb/issues"
   },
-  "homepage": "https://github.com/mmcarlsson/locidb#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/mmcarlsson/locidb#readme"
 }
