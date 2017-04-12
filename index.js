@@ -76,7 +76,7 @@ class Loci {
     }
 
     /**
-     * Drop/Deletes all tables (ALL FILES IN THE LOCIDB DIRECTORY), ONLY USE IF YOU KNOW WHAT YOU DOING.
+     * Drop/Deletes all tables (ALL FILES IN THE lociDB DIRECTORY), ONLY USE IF YOU KNOW WHAT YOU DOING.
      */
     drop() {
         var files = fs.readdirSync(pathToDB);
