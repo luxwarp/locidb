@@ -1,6 +1,8 @@
 
 /* This file is the nodejs module */
 
+"use strict";
+
 var fs = require("fs");
 
 const pathToDB = "lociDB/";
