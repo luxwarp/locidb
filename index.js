@@ -1,4 +1,3 @@
-
 /* This file is the nodejs module */
 
 "use strict";
@@ -27,18 +26,21 @@ class Loci {
     insert(tblName, value) {
         var existing;
         
+        //Check if table exist
         if(fs.existsSync(pathToDB+tblName+tblExtension)) {
+            //If it exist but is empty then make an array.
             if(fs.statSync(pathToDB+tblName+tblExtension).size == 0) {
                 existing = [];
-            }else {
+            }else { //if its not empty parse the content.
                 existing = JSON.parse(fs.readFileSync(pathToDB+tblName+tblExtension,"utf8"));
             }
         }else {
-            existing = [];
+            existing = []; //if table does not exist make an array.
         }
 
-        existing.push(value);
+        existing.push(value);   //push the value to the last index of array.
 
+        //write the array to the file. if it does not exist it will be created.
         fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(existing,null,"\t"));
     }
 
@@ -49,11 +51,11 @@ class Loci {
      */
     set(tblName, value) {
 
-        var existing = [];
+        var data = [];
 
-        existing.push(value);
+        data.push(value);
 
-        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(existing,null,"\t"));
+        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(data,null,"\t"));
     }
     
     /**
@@ -63,11 +65,12 @@ class Loci {
     get(tblName) {
         var existing;
         
+        //Check if table exist
         if(fs.existsSync(pathToDB+tblName+tblExtension)) {
+            //If it exist but is empty then make an array.
             if(fs.statSync(pathToDB+tblName+tblExtension).size == 0) {
-                existing = [];
                 return existing;
-            }else {
+            }else { 
                 existing = JSON.parse(fs.readFileSync(pathToDB+tblName+tblExtension,"utf8"));
                 return existing;
             }
@@ -92,7 +95,7 @@ class Loci {
     /**
      * Drop/Deletes all tables (ALL FILES IN THE lociDB DIRECTORY), ONLY USE IF YOU KNOW WHAT YOU DOING.
      */
-    drop() {
+    dropAll() {
         var files = fs.readdirSync(pathToDB);
         
         if(files.length <= 0) {

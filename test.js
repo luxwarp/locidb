@@ -27,4 +27,4 @@ var users = db.get("users");    //Get all rows in the table as an array of objec
 
 console.log(users);             //Print out the array so we can watch it.
 
-//db.drop();                      //Drop/deletes all tables. Only use if you know what you doing.
+//db.dropAll();                      //Drop/deletes all tables. Only use if you know what you doing.
