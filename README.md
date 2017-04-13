@@ -1,4 +1,4 @@
-# lociDB v0.0.1
+# lociDB
 Small and simple nosql-like database module 
 for NodeJS and Electron applications.
 
