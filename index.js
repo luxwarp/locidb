@@ -41,6 +41,20 @@ class Loci {
 
         fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(existing,null,"\t"));
     }
+
+    /**
+     * This will overwrite any data in the table and insert the value instead.
+     * @param {String} tblName The name off the table for overwriting and insert the value to. 
+     * @param {Object} value Needs to be an object. No need to stringify first, LOCI DO THAT FOR YOU!
+     */
+    set(tblName, value) {
+
+        var existing = [];
+
+        existing.push(value);
+
+        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(existing,null,"\t"));
+    }
     
     /**
      * This will return all rows from the table as an array of objects.
