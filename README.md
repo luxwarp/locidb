@@ -4,11 +4,13 @@
 Small and simple nosql-like database module 
 for NodeJS and Electron applications.
 
-This module lets you store objects into simple plain text files as a JSON string.
+This module lets you store Array of objects into simple plain text files as a JSON string.
 You dont need to stringify your objects first, we do that for you. (see usage below).
 
 This noSQL-like database is perfect for your small NodeJS and Electron applications where you 
-maby want to store some kind of user settings, todo-list etc for example.  
+maby want to store some kind of user settings, todo-list etc for example.
+
+See our [change log](https://github.com/mmcarlsson/locidb/wiki/Change-log) in the wiki.
 
 ## Install
 `npm install locidb`
@@ -51,7 +53,9 @@ console.log(db.get("settings"));
 
 console.log(db.getRows("users", "name", "Mikael")); //Get all rows in a table matching a key and a value as an array of objects.
 
-//db.dropAll();                                     //Drop/deletes all tables. Only use if you know what you doing.
+console.log(db.dropRows("users", "name", "Mikael")) //Drop/delete specific rows in a table. Returns a number of total rows deleted.
+db.dropTable("settings");                           //Drop/delete a specific table.
+db.dropAll();                                       //Drop/deletes all tables. Only use if you know what you doing.
 ```
 
 ## Testing

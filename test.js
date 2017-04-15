@@ -23,16 +23,20 @@ var settings = {
     active: false
 };
 
-console.log(db.listTables());                       //First list tables to se if it exists any already.
+console.log(db.listTables());                           //First list tables to se if it exists any already.
 
 db.set("users", user); 
-db.set("settings", settings);                       //This will overwrite any data in the table and insert the value instead.
+db.set("settings", settings);                           //This will overwrite any data in the table and insert the value instead.
 
-db.insert("users", user2);                          //Insert the object to the table at the end.
+db.insert("users", user2);                              //Insert the object to the table at the end.
 
-console.log(db.get("users"));                       //Get all rows in the table as an array of objects and print it.
+console.log(db.get("users"));                           //Get all rows in the table as an array of objects and print it.
 console.log(db.get("settings"));
 
-console.log(db.getRows("users", "name", "Mikael")); //Get all rows in a table matching a key and a value as an array of objects.
+console.log(db.getRows("users", "name", "Mikael"));     //Get all rows in a table matching a key and a value as an array of objects.
 
-//db.dropAll();                                     //Drop/deletes all tables. Only use if you know what you doing.
+console.log(db.dropRows("users", "age", 27));    //Drop/delete specific rows in a table. Returns a number of total rows deleted.
+
+//db.dropTable("settings");                             //Drop/delete a specific table.
+
+//db.dropAll();                                         //Drop/deletes all tables. Only use if you know what you doing.

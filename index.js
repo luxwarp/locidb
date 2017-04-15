@@ -52,6 +52,7 @@ class Loci {
     set(tblName, value) {
 
         var data = [];
+        
 
         data.push(value);
 
@@ -83,7 +84,7 @@ class Loci {
      * This will return all rows from the table as an array of objects where objects key matches key and value parameters.
      * @param {String} tblName Name of the table to search in.
      * @param {String} key The name of the key in your table, eg. name, age, city, title, etc.
-     * @param {String} value The value of the key you want to find.
+     * @param {any} value The value of the key you want to find.
      */
     getRows(tblName, key, value) {
         var rows = this.get(tblName);
@@ -117,6 +118,41 @@ class Loci {
         }else {
             return files;
         }
+    }
+
+    /**
+     * Drop/delete specific rows in a table. Returns a number of total rows deleted. 
+     * @param {String} tblName Name of the table to delete in.
+     * @param {String} key The name of the key in your table, eg. name, age, city, title, etc.
+     * @param {any} value The value of the key you want to match.
+     */
+    dropRows(tblName, key, value) {
+        var rows = this.get(tblName);
+        var total = rows.length;
+        
+        for(var i = 0; i < rows.length; i++) {
+            var obj = rows[i];
+
+            if(obj.hasOwnProperty(key)) {
+                if(obj[key] === value) {
+                    rows.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(rows, null, "\t"));
+
+        return total - rows.length;
+    }
+
+    /**
+     * Drop/Deletes a specific table. ONLY USE IF YOU KNOW WHAT YOU DOING.
+     * @param {String} tblName The name of the table you want to drop/delete.
+     */
+    dropTable(tblName) {
+
+        fs.unlinkSync(pathToDB+tblName+tblExtension);
     }
 
     /**
