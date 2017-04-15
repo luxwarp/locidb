@@ -16,7 +16,7 @@ maby want to store some kind of user settings, todo-list etc for example.
 ## Usage
 
 ```javascript
-var Loci = require("./index"); //Import the module.
+var Loci = require("locidb"); //Import the module.
 var db = new Loci(); //Create an instance of loci.
 
 var user = {                //This is three example objects
