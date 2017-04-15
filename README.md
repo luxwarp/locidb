@@ -16,36 +16,42 @@ maby want to store some kind of user settings, todo-list etc for example.
 ## Usage
 
 ```javascript
-var Loci = require("locidb");   //Import the module.
-var db = new Loci();            //Create an instance of loci.
+var Loci = require("./index"); //Import the module.
+var db = new Loci(); //Create an instance of loci.
 
-var user = {                    //This is an example object that we will INSERT into a table.
-    name: "mikael",
+var user = {                //This is three example objects
+    name: "Mikael",
     age: 27,
     city: "Bohus",
     country: "Sweden"
 };
 
-var settings = {                //This is another example object that we will SET into a table.
-    fontSize: 10,
-    fontColor: "#00FFCC",
-    network: "NAT",
+var user2 = {
+    name: "Kalle",
+    age: 27,
+    city: "Nol",
+    country: "Norway"
+};
+
+var settings = {
+    fontSize: 13,
+    color: "#000",
     active: false
 };
 
-console.log(db.listTables());   //First list tables to se if it exists any already.
+console.log(db.listTables());                       //First list tables to se if it exists any already.
 
-db.set("settings", settings);   //This will overwrite any data in the table and insert the value instead.
+db.set("users", user); 
+db.set("settings", settings);                       //This will overwrite any data in the table and insert the value instead.
 
-db.insert("users", user);       //Insert the object to the table at the end.
+db.insert("users", user2);                          //Insert the object to the table at the end.
 
-var users = db.get("users");    //Get all rows in the table as an array of objects
+console.log(db.get("users"));                       //Get all rows in the table as an array of objects and print it.
+console.log(db.get("settings"));
 
-console.log(users);             //Print out the array so we can watch it.
+console.log(db.getRows("users", "name", "Mikael")); //Get all rows in a table matching a key and a value as an array of objects.
 
-console.log(users[0].city);     //Example.
-
-db.dropAll();                   //Drop/deletes all tables. Only use if you know what you doing.
+//db.dropAll();                                     //Drop/deletes all tables. Only use if you know what you doing.
 ```
 
 ## Testing
