@@ -41,7 +41,7 @@ class Loci {
         existing.push(value);   //push the value to the last index of array.
 
         //write the array to the file. if it does not exist it will be created.
-        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(existing,null,"\t"));
+        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(existing, null, "\t"));
     }
 
     /**
@@ -55,7 +55,7 @@ class Loci {
 
         data.push(value);
 
-        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(data,null,"\t"));
+        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(data, null, "\t"));
     }
     
     /**
@@ -76,6 +76,33 @@ class Loci {
             }
         }else {
             return "Error: Table "+ tblName +" not found.";
+        }
+    }
+
+    /**
+     * This will return all rows from the table as an array of objects where objects key matches key and value parameters.
+     * @param {String} tblName Name of the table to search in.
+     * @param {String} key The name of the key in your table, eg. name, age, city, title, etc.
+     * @param {String} value The value of the key you want to find.
+     */
+    getRows(tblName, key, value) {
+        var rows = this.get(tblName);
+        
+        var result = rows.filter(function(obj) {
+            
+            if(obj.hasOwnProperty(key)) {
+                if(obj[key] === value) {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        });
+
+        if(result.length <= 0) {
+            return "No matching rows found";
+        }else {
+            return result;
         }
     }
 
