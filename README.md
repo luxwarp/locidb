@@ -4,7 +4,7 @@
 Small and simple nosql-like database module 
 for NodeJS and Electron applications.
 
-This module lets you store sn array of objects into simple plain text files as a JSON string.
+This module lets you store an array of objects into simple plain text files as a JSON string.
 You dont need to stringify your objects first, we do that for you. (see usage below).
 
 This noSQL-like database is perfect for your small NodeJS and Electron applications where you 
