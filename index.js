@@ -1,11 +1,11 @@
 /* This file is the nodejs module */
 
-"use strict";
+'use strict';
 
-var fs = require("fs");
+var fs = require('fs');
 
-const pathToDB = "lociDB/";
-const tblExtension = ".db";
+const pathToDB = 'lociDB/';
+const tblExtension = '.db';
 
 class Loci {
     /**
@@ -32,7 +32,7 @@ class Loci {
             if(fs.statSync(pathToDB+tblName+tblExtension).size == 0) {
                 existing = [];
             }else { //if its not empty parse the content.
-                existing = JSON.parse(fs.readFileSync(pathToDB+tblName+tblExtension,"utf8"));
+                existing = JSON.parse(fs.readFileSync(pathToDB+tblName+tblExtension,'utf8'));
             }
         }else {
             existing = []; //if table does not exist make an array.
@@ -41,7 +41,7 @@ class Loci {
         existing.push(value);   //push the value to the last index of array.
 
         //write the array to the file. if it does not exist it will be created.
-        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(existing, null, "\t"));
+        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(existing, null, '\t'));
     }
 
     /**
@@ -56,7 +56,7 @@ class Loci {
 
         data.push(value);
 
-        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(data, null, "\t"));
+        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(data, null, '\t'));
     }
     
     /**
@@ -72,11 +72,11 @@ class Loci {
             if(fs.statSync(pathToDB+tblName+tblExtension).size == 0) {
                 return existing;
             }else { 
-                existing = JSON.parse(fs.readFileSync(pathToDB+tblName+tblExtension,"utf8"));
+                existing = JSON.parse(fs.readFileSync(pathToDB+tblName+tblExtension,'utf8'));
                 return existing;
             }
         }else {
-            return "Error: Table "+ tblName +" not found.";
+            return 'Error: Table '+ tblName +' not found.';
         }
     }
 
@@ -101,7 +101,7 @@ class Loci {
         });
 
         if(result.length <= 0) {
-            return "No matching rows found";
+            return 'Error: No matching rows found';
         }else {
             return result;
         }
@@ -114,7 +114,7 @@ class Loci {
         var files = fs.readdirSync(pathToDB);
         
         if(files.length <= 0) {
-            return "Error: No tables found in folder " + pathToDB;
+            return 'Error: No tables found in folder: ' + pathToDB;
         }else {
             return files;
         }
@@ -141,7 +141,7 @@ class Loci {
             }
         }
 
-        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(rows, null, "\t"));
+        fs.writeFileSync(pathToDB+tblName+tblExtension, JSON.stringify(rows, null, '\t'));
 
         return total - rows.length;
     }
@@ -162,7 +162,7 @@ class Loci {
         var files = fs.readdirSync(pathToDB);
         
         if(files.length <= 0) {
-            return "Error: No tables found in folder " + pathToDB;
+            return 'Error: No tables found in folder: ' + pathToDB;
         }else {
             for(var i = 0; i < files.length; i++) {
                 fs.unlinkSync(pathToDB+files[i]);
