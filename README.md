@@ -48,12 +48,14 @@ db.set('settings', settings);                       //This will overwrite any da
 
 db.insert('users', user2);                          //Insert the object to the table at the end.
 
+console.log(db.countRows('users'));                 //Count how many rows there is in a table.
+
 console.log(db.get('users'));                       //Get all rows in the table as an array of objects and print it.
 console.log(db.get('settings'));
 
 console.log(db.getRows('users', 'name', 'Mikael')); //Get all rows in a table matching a key and a value as an array of objects.
 
-console.log(db.dropRows('users', 'name', 'Mikael')) //Drop/delete specific rows in a table. Returns a number of total rows deleted.
+console.log(db.dropRows('users', 'name', 'Mikael')); //Drop/delete specific rows in a table. Returns a number of total rows deleted.
 db.dropTable('settings');                           //Drop/delete a specific table.
 db.dropAll();                                       //Drop/deletes all tables. Only use if you know what you doing.
 ```

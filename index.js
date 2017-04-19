@@ -60,34 +60,37 @@ class Loci {
     }
     
     /**
-     * This will return all rows from the table as an array of objects.
+     * This will return all rows from the table as an array of objects. Return false if table not exist or is empty.
      * @param {String} tblName Name of the table to return. 
      */
     get(tblName) {
-        var existing;
+        var existing = [];
         
         //Check if table exist
         if(fs.existsSync(pathToDB+tblName+tblExtension)) {
             //If it exist but is empty then make an array.
             if(fs.statSync(pathToDB+tblName+tblExtension).size == 0) {
-                return existing;
+                return false;
             }else { 
                 existing = JSON.parse(fs.readFileSync(pathToDB+tblName+tblExtension,'utf8'));
                 return existing;
             }
         }else {
-            return 'Error: Table '+ tblName +' not found.';
+            return false;
         }
     }
 
     /**
-     * This will return all rows from the table as an array of objects where objects key matches key and value parameters.
+     * This will return all rows from the table as an array of objects where objects key matches key and value parameters. Returns false if no matching is found.
      * @param {String} tblName Name of the table to search in.
      * @param {String} key The name of the key in your table, eg. name, age, city, title, etc.
      * @param {any} value The value of the key you want to find.
      */
     getRows(tblName, key, value) {
         var rows = this.get(tblName);
+        if(!rows) {
+            return false;
+        }
         
         var result = rows.filter(function(obj) {
             
@@ -101,33 +104,49 @@ class Loci {
         });
 
         if(result.length <= 0) {
-            return 'Error: No matching rows found';
+            return false;
         }else {
             return result;
         }
     }
 
+     /**
+     * This will return how many rows there is in a table. Returns false if no table exist or is empty.
+     * @param {String} tblName Name of the table to count rows in.
+     */
+    countRows(tblName) {
+        var rows = this.get(tblName);
+        if(!rows) {
+            return false;
+        }
+
+        return rows.length;
+    }
+
     /**
-     * This will return all tables that exists as an array of strings with file extension.
+     * This will return all tables that exists as an array of strings with file extension. Returns false if no tables are found.
      */
     listTables() {
         var files = fs.readdirSync(pathToDB);
         
         if(files.length <= 0) {
-            return 'Error: No tables found in folder: ' + pathToDB;
+            return false;
         }else {
             return files;
         }
     }
 
     /**
-     * Drop/delete specific rows in a table. Returns a number of total rows deleted. 
+     * Drop/delete specific rows in a table. Returns a number of total rows deleted. Returns false if table dont exists.
      * @param {String} tblName Name of the table to delete in.
      * @param {String} key The name of the key in your table, eg. name, age, city, title, etc.
      * @param {any} value The value of the key you want to match.
      */
     dropRows(tblName, key, value) {
         var rows = this.get(tblName);
+        if(!rows) {
+            return false;
+        }
         var total = rows.length;
         
         for(var i = 0; i < rows.length; i++) {
@@ -147,22 +166,28 @@ class Loci {
     }
 
     /**
-     * Drop/Deletes a specific table. ONLY USE IF YOU KNOW WHAT YOU DOING.
+     * Drop/Deletes a specific table. Returns false if table dont exist. ONLY USE IF YOU KNOW WHAT YOU DOING.
      * @param {String} tblName The name of the table you want to drop/delete.
      */
     dropTable(tblName) {
+        var deleted;
 
-        fs.unlinkSync(pathToDB+tblName+tblExtension);
+        try {
+            deleted = fs.unlinkSync(pathToDB+tblName+tblExtension);
+        } catch(err) {
+            return false;
+        }
+        return true;
     }
 
     /**
-     * Drop/Deletes all tables (ALL FILES IN THE lociDB DIRECTORY), ONLY USE IF YOU KNOW WHAT YOU DOING.
+     * Drop/Deletes all tables (ALL FILES IN THE lociDB DIRECTORY), Returns false if no table exists. Returns true if drop/delete was successful. ONLY USE IF YOU KNOW WHAT YOU DOING.
      */
     dropAll() {
         var files = fs.readdirSync(pathToDB);
         
         if(files.length <= 0) {
-            return 'Error: No tables found in folder: ' + pathToDB;
+            return false;
         }else {
             for(var i = 0; i < files.length; i++) {
                 fs.unlinkSync(pathToDB+files[i]);

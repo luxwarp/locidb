@@ -1,6 +1,6 @@
 {
   "name": "locidb",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Small and simple nosql-like database module for NodeJS",
   "main": "index.js",
   "scripts": {
