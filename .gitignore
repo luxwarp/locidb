@@ -38,3 +38,6 @@ jspm_packages
 
 # Folder created by lociDB test-run.
 lociDB
+
+#VS Code folder
+.vscode

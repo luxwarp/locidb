@@ -1,14 +1,14 @@
 {
   "name": "locidb",
-  "version": "0.2.0",
-  "description": "Small and simple nosql-like database module for NodeJS",
+  "version": "0.2.1",
+  "description": "Small and simple noSQL-like database module for NodeJS applications.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mmcarlsson/locidb.git"
+    "url": "git+https://github.com/luxwarp/locidb.git"
   },
   "keywords": [
     "small",
@@ -16,12 +16,13 @@
     "database",
     "nosql",
     "nodejs",
-    "module"
+    "module",
+    "db"
   ],
-  "author": "Mikael Carlsson <mikael.m.carlsson@gmail.com> (http://webumin.com)",
-  "license": "MIT",
+  "author": "Mikael Luxwarp Carlsson <mikael.m.carlsson@gmail.com> (https://luxwarp.info)",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mmcarlsson/locidb/issues"
+    "url": "https://github.com/luxwarp/locidb/issues"
   },
-  "homepage": "https://github.com/mmcarlsson/locidb#readme"
+  "homepage": "https://github.com/luxwarp/locidb#readme"
 }
