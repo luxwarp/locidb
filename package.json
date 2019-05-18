@@ -1,6 +1,6 @@
 {
   "name": "locidb",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Small and simple noSQL-like database module for NodeJS applications.",
   "main": "index.js",
   "scripts": {
@@ -17,12 +17,17 @@
     "nosql",
     "nodejs",
     "module",
-    "db"
+    "db",
+    "electron",
+    "storage"
   ],
   "author": "Mikael Luxwarp Carlsson <mikael.m.carlsson@gmail.com> (https://luxwarp.info)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/luxwarp/locidb/issues"
   },
-  "homepage": "https://github.com/luxwarp/locidb#readme"
+  "homepage": "https://github.com/luxwarp/locidb#readme",
+  "dependencies": {
+    "appdata-path": "^1.0.0"
+  }
 }

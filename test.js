@@ -3,7 +3,7 @@
 /* This file is for testing the module locidb. Run it in the terminal with "node ./test" */
 
 const LociDB = require('./index') // Import the module.
-const db = new LociDB() // Create an instance of loci.
+const db = new LociDB() // Create an instance of lociDB and create folder in users appData folder.
 
 let user = { // This is three example objects
   name: 'Mikael',

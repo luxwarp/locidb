@@ -1,17 +1,28 @@
 'use strict'
 
 const fs = require('fs')
+const { getAppDataPath } = require('appdata-path')
 
 class LociDB {
   /**
-     * Constructor will create a folder for all table files.
+     * Create database folder to store table files.
+     * @param {String} dbDestination Where you want to store table files. Default is users appData folder if not set. If you develop an electron app it's recommended to insert app.getPath('userData') here.
+     * @param {String} dbName What name the database folder will have. Default is 'locidb' if not set.
   */
-  constructor () {
-    this.pathToDB = 'lociDB/'
+  constructor (dbDestination = getAppDataPath(), dbName = 'locidb') {
+    // Checks the added parameters for faulty inputs.
+    if (dbDestination === null || dbDestination.trim() === '') {
+      dbDestination = getAppDataPath()
+    }
+    if (dbName === null || dbName.trim() === '') {
+      dbName = 'locidb'
+    }
+
+    this.pathToDB = dbDestination + '/' + dbName + '/'
     this.tblExtension = '.db'
     // Lets create a folder if it does not exist when we starting to use the module.
     if (!fs.existsSync(this.pathToDB)) {
-      fs.mkdirSync(this.pathToDB)
+      fs.mkdirSync(this.pathToDB, { recursive: true })
     }
   }
 
