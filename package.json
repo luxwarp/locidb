@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luxwarp/locidb.git"
+    "url": "git+https://github.com/codeiolo.org/locidb.git"
   },
   "keywords": [
     "small",
@@ -21,12 +21,16 @@
     "electron",
     "storage"
   ],
-  "author": "Mikael Luxwarp Carlsson <mikael.m.carlsson@gmail.com> (https://luxwarp.info)",
+  "author": {
+    "name": "Mikael Luxwarp Carlsson",
+    "email": "mikael.m.carlsson@gmail.com",
+    "url": "https://codeiolo.org"
+  },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/luxwarp/locidb/issues"
+    "url": "https://github.com/codeiolo.org/locidb/issues"
   },
-  "homepage": "https://github.com/luxwarp/locidb#readme",
+  "homepage": "https://github.com/codeiolo.org/locidb#readme",
   "dependencies": {
     "appdata-path": "^1.0.0"
   }
