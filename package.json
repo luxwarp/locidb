@@ -1,14 +1,10 @@
 {
   "name": "locidb",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Small and simple noSQL-like database module for NodeJS applications.",
   "main": "index.js",
   "scripts": {
     "test": "node ./test.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luxwarp/locidb.git"
   },
   "keywords": [
     "small",
@@ -21,13 +17,27 @@
     "electron",
     "storage"
   ],
-  "author": "Mikael Luxwarp Carlsson <mikael.m.carlsson@gmail.com> (https://luxwarp.info)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/luxwarp/locidb/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeiolo/locidb.git"
   },
-  "homepage": "https://github.com/luxwarp/locidb#readme",
+  "author": {
+    "name": "Mikael Luxwarp Carlsson",
+    "email": "mikael.m.carlsson@gmail.com",
+    "url": "https://codeiolo.org"
+  },
+  "bugs": {
+    "url": "https://github.com/codeiolo/locidb/issues"
+  },
+  "homepage": "https://github.com/codeiolo/locidb#readme",
+  "license": "ISC",
   "dependencies": {
     "appdata-path": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2"
   }
 }
