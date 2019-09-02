@@ -4,9 +4,12 @@
 
 const LociDB = require("./index"); // Import the module.
 const db = new LociDB(); // Create an instance of lociDB and create folder in users appData folder.
+// const db = new LociDB("/path/to/destination", "mycooldb")  // You can also decide your self where to store lociDB database, table files and what name it should have.
+// const db = new LociDB(undefined, "mycooldb")               // Create a lociDB database folder at default location but change the name.
+// const db = new LociDB(app.getPath("userData"), "mycooldb") // For electron app developer. A lociDB database folder is created per auto inside you app config folder which is in users default appData folder.
 
+// This is three example objects
 let user = {
-  // This is three example objects
   name: "Mikael",
   age: 27,
   city: "Bohus",
@@ -26,7 +29,7 @@ let settings = {
   active: false
 };
 
-console.log(db.listTables()); // First list tables to se if it exists any already.
+console.log(db.listTables()); // First list tables to see if there exists any already.
 
 db.set("users", user);
 db.set("settings", settings); // This will overwrite any data in the table and insert the value instead.
