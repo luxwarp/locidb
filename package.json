@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/codeiolo.org/locidb.git"
+    "url": "https://github.com/codeiolo/locidb.git"
   },
   "author": {
     "name": "Mikael Luxwarp Carlsson",
@@ -27,9 +27,9 @@
     "url": "https://codeiolo.org"
   },
   "bugs": {
-    "url": "https://github.com/codeiolo.org/locidb/issues"
+    "url": "https://github.com/codeiolo/locidb/issues"
   },
-  "homepage": "https://github.com/codeiolo.org/locidb#readme",
+  "homepage": "https://github.com/codeiolo/locidb#readme",
   "license": "ISC",
   "dependencies": {
     "appdata-path": "^1.0.0"
