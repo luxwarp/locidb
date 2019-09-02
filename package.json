@@ -6,10 +6,6 @@
   "scripts": {
     "test": "node ./test.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/codeiolo.org/locidb.git"
-  },
   "keywords": [
     "small",
     "easy",
@@ -21,17 +17,27 @@
     "electron",
     "storage"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeiolo.org/locidb.git"
+  },
   "author": {
     "name": "Mikael Luxwarp Carlsson",
     "email": "mikael.m.carlsson@gmail.com",
     "url": "https://codeiolo.org"
   },
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/codeiolo.org/locidb/issues"
   },
   "homepage": "https://github.com/codeiolo.org/locidb#readme",
+  "license": "ISC",
   "dependencies": {
     "appdata-path": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2"
   }
 }
