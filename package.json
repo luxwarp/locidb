@@ -1,6 +1,6 @@
 {
   "name": "locidb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Small and simple noSQL-like database module for NodeJS applications.",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "author": {
     "name": "Mikael Luxwarp Carlsson",
     "email": "mikael.m.carlsson@gmail.com",
-    "url": "https://codeiolo.org"
+    "url": "https://connumin.com"
   },
   "bugs": {
     "url": "https://github.com/codeiolo/locidb/issues"
@@ -35,9 +35,9 @@
     "appdata-path": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^6.3.0",
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "prettier": "^1.18.2"
+    "eslint": "^7.20",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "prettier": "^2.2.1"
   }
 }

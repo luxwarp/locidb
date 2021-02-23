@@ -85,7 +85,7 @@ npm run test
 
 ## License
 
-ISC [Mikael Luxwarp Carlsson](https://codeiolo.org)
+ISC [Mikael Luxwarp Carlsson](https://connumin.com)
 
 ## Note
 
